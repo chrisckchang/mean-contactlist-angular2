@@ -10,7 +10,7 @@ export class ContactService {
     constructor (private http: Http) {}
 
     // get("/api/contacts")
-    getContacts(): Promise<void | Contact[]> {
+    getContacts(): Promise<Contact[]> {
       return this.http.get(this.contactsUrl)
                  .toPromise()
                  .then(response => response.json() as Contact[])
@@ -18,7 +18,7 @@ export class ContactService {
     }
 
     // post("/api/contacts")
-    createContact(newContact: Contact): Promise<void | Contact> {
+    createContact(newContact: Contact): Promise<Contact> {
       return this.http.post(this.contactsUrl, newContact)
                  .toPromise()
                  .then(response => response.json() as Contact)
@@ -28,7 +28,7 @@ export class ContactService {
     // get("/api/contacts/:id") endpoint not used by Angular app
 
     // delete("/api/contacts/:id")
-    deleteContact(delContactId: String): Promise<void | String> {
+    deleteContact(delContactId: String): Promise<String> {
       return this.http.delete(this.contactsUrl + '/' + delContactId)
                  .toPromise()
                  .then(response => response.json() as String)
@@ -36,7 +36,7 @@ export class ContactService {
     }
 
     // put("/api/contacts/:id")
-    updateContact(putContact: Contact): Promise<void | Contact> {
+    updateContact(putContact: Contact): Promise<Contact> {
       var putUrl = this.contactsUrl + '/' + putContact._id;
       return this.http.put(putUrl, putContact)
                  .toPromise()
@@ -44,9 +44,10 @@ export class ContactService {
                  .catch(this.handleError);
     }
 
-    private handleError (error: any) {
+    private handleError (error: any): Promise<any> {
       let errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-      console.error(errMsg); // log to console instead
+      console.error(errMsg); // log to console
+      return Promise.reject(errMsg);
     }
 }
