@@ -29,8 +29,8 @@
     "@angular/router": "^6.0.3",
     "body-parser": "^1.18.3",
     "core-js": "^2.5.4",
-    "express": "^4.16.3",
-    "mongodb": "^3.1.1",
+    "express": "^4.16.4",
+    "mongodb": "^3.1.8",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },
