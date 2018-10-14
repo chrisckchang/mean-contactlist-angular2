@@ -6,8 +6,12 @@ Essa é uma aplicação web para facilitar que pessoas compartilhem histórias d
 
 Essa é uma aplicação MEAN com angular 6. Ela roda no Heroku.
 
-## Ajudando
+## Rodando local
 
-Como fazer.
+Você precisará da URL de um mongodb rodando do npm e ng-cli.
 
-``
+```
+export MONGODB_URI=[url-mongo]
+npm install
+npm start
+```
