@@ -1,5 +1,9 @@
 export class Post {
     _id?: string;
     owner: string;
-    text: string;
+    occupation: string;
+    whoIAmToFamily: string;
+    eduPrograms: string;
+    addText: string;
+    againstTo: string;
   }

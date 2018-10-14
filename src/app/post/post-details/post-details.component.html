@@ -7,15 +7,58 @@
 <div *ngIf="post" class="row">
   <form class="col-md-12">
     <div class="form-group">
-      <label for="post-name">Owner</label>
-      <input class="form-control" name="post-owner" [(ngModel)]="post.owner" placeholder="Owner"/>
+      <label for="post-name">Nome</label>
+      <input class="form-control" name="post-owner" [(ngModel)]="post.owner" placeholder="Nome"/>
     </div>
     <div class="form-group">
-      <label for="post-text">Text</label>
-      <input class="form-control" name="post-text" [(ngModel)]="post.text" placeholder="Seu texto"/>
+        <label for="post-name">Hoje sou</label>
+        <input class="form-control" name="post-whoiam" [(ngModel)]="post.occupation" placeholder="Hoje sou formado/a em..."/>
     </div>
+    <div class="form-group">
+        <label for="post-name">Sou</label>
+        <input class="form-control" name="post-whoaim-family" [(ngModel)]="post.whoIAmToFamily" placeholder="Sou filho/a de..."/>
+    </div>
+    <div class="checkbox">
+        <label>
+          <input (change)="firstGraduated = !firstGraduated" type="checkbox" data-toggle="toggle">
+          {{firstGraduatedValue}}
+        </label>      
+    </div>    
+    <div class="checkbox">
+        <label>
+          <input #saveUsername type="checkbox" data-toggle="toggle" 
+            (change)="greaterSalaryFamily = !greaterSalaryFamily" />
+          {{greaterSalaryFamily}}
+        </label>      
+    </div>
+    <div class="form-group">
+        <label for="post-name">Minha educação foi transformada pelo/a:</label>
+        <div *ngFor="let option of eduProgramOptions">
+            <label>
+                <input type="checkbox"
+                       name="options"
+                       value="{{option.value}}"
+                       [(ngModel)]="option.checked"/>
+                {{option.name}}
+            </label>
+        </div>
+    </div>    
+    <div class="form-group">
+      <label for="post-text">Além disso</label>
+      <input class="form-control" name="post-text" [(ngModel)]="post.addText" placeholder="..."/>
+    </div>
+    <div class="form-group">
+        <label for="post-name">E sou contra:</label>
+        <div *ngFor="let option of againstTo">
+            <label>
+                <input type="checkbox"
+                       name="options"
+                       value="{{option.value}}"
+                       [(ngModel)]="option.checked"/>
+                {{option.name}}
+            </label>
+        </div>
+    </div>     
     <button class="btn btn-primary" *ngIf="!post._id" (click)="createPost(post)">Create</button>
-    <button class="btn btn-info" *ngIf="post._id" (click)="updatePost(post)">Update</button>
-    <button class="btn btn-danger" *ngIf="post._id" (click)="deletePost(post._id)">Delete</button>
   </form>
 </div>
