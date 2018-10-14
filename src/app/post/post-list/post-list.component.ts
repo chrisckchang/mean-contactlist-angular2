@@ -22,8 +22,8 @@ export class PostListComponent implements OnInit {
       .getPosts()
       .then((posts: Post[]) => {
         this.posts = posts.map((post) => {
-          if (!post.text) {
-            post.text = '';
+          if (!post.owner) {
+            post.owner = '';
           }
           return post;
         });
@@ -42,8 +42,12 @@ export class PostListComponent implements OnInit {
 
   createNewPost() {
     var post: Post = {
-      text: '',
       owner: '',
+      occupation: '',
+      whoIAmToFamily: '',
+      eduPrograms: '',
+      addText: '',
+      againstTo: ''
     };
 
     // By default, a newly-created post will have the selected state.
