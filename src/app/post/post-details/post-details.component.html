@@ -1,0 +1,21 @@
+<div *ngIf="post" class="row">
+  <div class="col-md-12">
+    <h2 *ngIf="post._id">Post Details</h2>
+    <h2 *ngIf="!post._id">New Post</h2>
+  </div>
+</div>
+<div *ngIf="post" class="row">
+  <form class="col-md-12">
+    <div class="form-group">
+      <label for="post-name">Owner</label>
+      <input class="form-control" name="post-owner" [(ngModel)]="post.owner" placeholder="Owner"/>
+    </div>
+    <div class="form-group">
+      <label for="post-text">Text</label>
+      <input class="form-control" name="post-text" [(ngModel)]="post.text" placeholder="Seu texto"/>
+    </div>
+    <button class="btn btn-primary" *ngIf="!post._id" (click)="createPost(post)">Create</button>
+    <button class="btn btn-info" *ngIf="post._id" (click)="updatePost(post)">Update</button>
+    <button class="btn btn-danger" *ngIf="post._id" (click)="deletePost(post._id)">Delete</button>
+  </form>
+</div>

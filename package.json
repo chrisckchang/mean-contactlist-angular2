@@ -4,12 +4,15 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --output-path dist"
+    "postinstall": "ng build --output-path dist",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "start": "node server.js"
   },
   "private": true,
   "dependencies": {
@@ -48,6 +51,8 @@
     "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
-    "typescript": "~2.7.2"
+    "typescript": "~2.7.2",
+    "concurrently": "^1.0.0",
+    "lite-server": "^2.0.1"
   }
 }
