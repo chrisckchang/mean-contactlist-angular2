@@ -7,16 +7,13 @@
 <div *ngIf="post" class="row">
   <form class="col-md-12">
     <div class="form-group">
-      <label for="post-name">Nome</label>
-      <input class="form-control" name="post-owner" [(ngModel)]="post.owner" placeholder="Nome"/>
+        <input class="form-control" name="post-whoiam" [(ngModel)]="post.occupation" 
+          placeholder="Digite sua ocupação"/>
     </div>
     <div class="form-group">
-        <label for="post-name">Hoje sou</label>
-        <input class="form-control" name="post-whoiam" [(ngModel)]="post.occupation" placeholder="Hoje sou formado/a em..."/>
-    </div>
-    <div class="form-group">
-        <label for="post-name">Sou</label>
-        <input class="form-control" name="post-whoaim-family" [(ngModel)]="post.whoIAmToFamily" placeholder="Sou filho/a de..."/>
+        <label for="post-name">Criado (a) por:</label>
+        <input class="form-control" name="post-whoaim-family" [(ngModel)]="post.whoIAmToFamily" 
+          placeholder="Fale dos seus responsáveis..."/>
     </div>
     <div class="checkbox">
         <label>
@@ -24,15 +21,8 @@
           {{firstGraduatedValue}}
         </label>      
     </div>    
-    <div class="checkbox">
-        <label>
-          <input #saveUsername type="checkbox" data-toggle="toggle" 
-            (change)="greaterSalaryFamily = !greaterSalaryFamily" />
-          {{greaterSalaryFamily}}
-        </label>      
-    </div>
     <div class="form-group">
-        <label for="post-name">Minha educação foi transformada pelo/a:</label>
+        <label for="post-name">Minha educação foi transformada com:</label>
         <div *ngFor="let option of eduProgramOptions">
             <label>
                 <input type="checkbox"
@@ -43,10 +33,6 @@
             </label>
         </div>
     </div>    
-    <div class="form-group">
-      <label for="post-text">Além disso</label>
-      <input class="form-control" name="post-text" [(ngModel)]="post.addText" placeholder="..."/>
-    </div>
     <div class="form-group">
         <label for="post-name">E sou contra:</label>
         <div *ngFor="let option of againstTo">

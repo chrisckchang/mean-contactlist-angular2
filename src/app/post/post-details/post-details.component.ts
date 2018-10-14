@@ -31,9 +31,6 @@ export class PostDetailsComponent {
   
   firstGraduated = false;
   firstGraduatedValue = "Sou o primeiro da família a completar o ensino superior";
-
-  greaterSalaryFamily = false;
-  greaterSalaryFamilyValue = "Tenho o maior salário da minha família";
   
   @Input()
   post: Post;
@@ -63,7 +60,6 @@ export class PostDetailsComponent {
 
   createPost(post: Post) {
     if (this.firstGraduated) post.whoIAmToFamily += this.firstGraduatedValue + ". ";
-    if (this.greaterSalaryFamily) post.whoIAmToFamily += this.greaterSalaryFamilyValue + ". ";
 
     let mEduProgramOptions = "";
     this.eduProgramOptions.forEach(option => {

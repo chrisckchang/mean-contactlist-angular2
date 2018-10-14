@@ -46,7 +46,6 @@ export class PostListComponent implements OnInit {
       occupation: '',
       whoIAmToFamily: '',
       eduPrograms: '',
-      addText: '',
       againstTo: ''
     };
 

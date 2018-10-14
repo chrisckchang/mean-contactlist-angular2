@@ -4,6 +4,5 @@ export class Post {
     occupation: string;
     whoIAmToFamily: string;
     eduPrograms: string;
-    addText: string;
     againstTo: string;
   }
