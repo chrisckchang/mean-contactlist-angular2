@@ -1,3 +1,15 @@
 @import '../node_modules/bootstrap/scss/functions';
 @import "assets/variables";
 @import '../node_modules/bootstrap/scss/bootstrap';
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+.section {
+  padding: $spacer;
+  background-color: $yellow;
+  color: $white;
+}
+
+.main-container {
+  padding-top: $spacer;
+}
