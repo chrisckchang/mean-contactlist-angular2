@@ -54,19 +54,14 @@ app.get("/api/post", function(req, res) {
 });
 
 app.post("/api/post", function(req, res) {
-  var newPost = req.body;
-  
-  if (!req.body.owner) {
-    handleError(res, "Invalid user input", "Must provide a name.", 400);
-  } else {
-    db.collection(POSTS_COLLECTION).insertOne(newPost, function(err, doc) {
-      if (err) {
+  var newPost = req.body;  
+  db.collection(POSTS_COLLECTION).insertOne(newPost, function(err, doc) {
+	  if (err) {
         handleError(res, err.message, "Failed to create new post.");
       } else {
         res.status(201).json(doc.ops[0]);
       }
     });
-  }
 });
 
 app.get("/api/post/:id", function(req, res) {
