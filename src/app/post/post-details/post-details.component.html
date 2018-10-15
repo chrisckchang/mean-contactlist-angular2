@@ -1,50 +1,43 @@
 <div *ngIf="post" class="row">
-  <div class="col-md-12">
-    <h2 *ngIf="post._id">Post Details</h2>
-    <h2 *ngIf="!post._id">New Post</h2>
-  </div>
+    <div class="col-md-12">
+        <h2 *ngIf="post._id">Post Details</h2>
+        <h2 *ngIf="!post._id">New Post</h2>
+        <h2 *ngIf="this.authService.userDetails !== null">
+            <img src="" /> {{this.authService.userDetails.displayName}}
+        </h2>
+    </div>
 </div>
 <div *ngIf="post" class="row">
-  <form class="col-md-12">
-    <div class="form-group">
-        <input class="form-control" name="post-whoiam" [(ngModel)]="post.occupation" 
-          placeholder="Digite sua ocupação"/>
-    </div>
-    <div class="form-group">
-        <label for="post-name">Criado (a) por:</label>
-        <input class="form-control" name="post-whoaim-family" [(ngModel)]="post.whoIAmToFamily" 
-          placeholder="Fale dos seus responsáveis..."/>
-    </div>
-    <div class="checkbox">
-        <label>
-          <input (change)="firstGraduated = !firstGraduated" type="checkbox" data-toggle="toggle">
-          {{firstGraduatedValue}}
-        </label>      
-    </div>    
-    <div class="form-group">
-        <label for="post-name">Minha educação foi transformada com:</label>
-        <div *ngFor="let option of eduProgramOptions">
+    <form class="col-md-12">
+        <div class="form-group">
+            <input class="form-control" name="post-whoiam" [(ngModel)]="post.occupation" placeholder="Digite sua ocupação" />
+        </div>
+        <div class="form-group">
+            <label for="post-name">Criado (a) por:</label>
+            <input class="form-control" name="post-whoaim-family" [(ngModel)]="post.whoIAmToFamily" placeholder="Fale dos seus responsáveis..."
+            />
+        </div>
+        <div class="checkbox">
             <label>
-                <input type="checkbox"
-                       name="options"
-                       value="{{option.value}}"
-                       [(ngModel)]="option.checked"/>
-                {{option.name}}
+                <input (change)="firstGraduated = !firstGraduated" type="checkbox" data-toggle="toggle"> {{firstGraduatedValue}}
             </label>
         </div>
-    </div>    
-    <div class="form-group">
-        <label for="post-name">E sou contra:</label>
-        <div *ngFor="let option of againstTo">
-            <label>
-                <input type="checkbox"
-                       name="options"
-                       value="{{option.value}}"
-                       [(ngModel)]="option.checked"/>
-                {{option.name}}
-            </label>
+        <div class="form-group">
+            <label for="post-name">Minha educação foi transformada com:</label>
+            <div *ngFor="let option of eduProgramOptions">
+                <label>
+                    <input type="checkbox" name="options" value="{{option.value}}" [(ngModel)]="option.checked" /> {{option.name}}
+                </label>
+            </div>
         </div>
-    </div>     
-    <button class="btn btn-primary" *ngIf="!post._id" (click)="createPost(post)">Create</button>
-  </form>
+        <div class="form-group">
+            <label for="post-name">E sou contra:</label>
+            <div *ngFor="let option of againstTo">
+                <label>
+                    <input type="checkbox" name="options" value="{{option.value}}" [(ngModel)]="option.checked" /> {{option.name}}
+                </label>
+            </div>
+        </div>
+        <button class="btn btn-primary" *ngIf="!post._id" (click)="createPost(post)">Create</button>
+    </form>
 </div>
