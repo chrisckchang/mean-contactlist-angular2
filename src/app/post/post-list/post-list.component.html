@@ -1,17 +1,38 @@
-<div class="row">
-  <div class="col-md-5">
-    <h2>Posts</h2>
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let post of posts" (click)="selectPost(post)" [class.active]="post === selectedPost">
-        {{post.owner}}
-      </li>
-    </ul>
+<div class="container">
+  <div class="section">
+    Reunimos aqui as histórias de <strong>Brasileiras(os)</strong> que 
+    transformaram suas vidas através da <strong>educação</strong> com os
+    projetos impulsionados e/ou criados durante a gestão de 
+    <strong>Haddad</strong> como <strong>Ministro da Educação</strong>
+    <div class="text-right">
+      <a routerLink="/login" class="btn btn-link btn-sm">Conte-nos sua história</a>
+    </div>
     <button class="btn btn-warning" (click)="createNewPost()">New</button>
     <button class="btn btn-warning" *ngIf="!isLoggedIn()" (click)="login()">Facebook Login</button>
     <button class="btn btn-warning" *ngIf="isLoggedIn()" (click)="logout()">Logout</button>
   </div>
-  <div class="col-md-5 col-md-offset-2">
-    <post-details [post]="selectedPost" [createHandler]="addPost" [updateHandler]="updatePost" [deleteHandler]="deletePost">
-    </post-details>
+  <div class="py-3">
+    <h3>Prazer, sou</h3>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <ul class="list-group">
+        <li class="list-group-item"
+          *ngFor="let post of posts"
+          (click)="selectPost(post)"
+          [class.active]="post === selectedPost">
+          {{post.owner}}
+        </li>
+      </ul>
+      <button class="btn btn-warning" (click)="createNewPost()">New</button>
+    </div>
+    <div class="col-md-5 col-md-offset-2">
+      <post-details
+        [post]="selectedPost"
+        [createHandler]="addPost"
+        [updateHandler]="updatePost"
+        [deleteHandler]="deletePost">
+      </post-details>
+    </div>
   </div>
 </div>

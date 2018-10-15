@@ -6,6 +6,11 @@ Essa é uma aplicação web para facilitar que pessoas compartilhem histórias d
 
 Essa é uma aplicação MEAN com angular 6. Ela roda no Heroku.
 
+## Pré-requisitos
+
+* Node 10.9
+* Angular CLI 6 (https://cli.angular.io)
+
 ## Rodando local
 
 Você precisará da URL de um mongodb rodando do npm e ng-cli.
