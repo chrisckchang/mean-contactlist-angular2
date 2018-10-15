@@ -1,8 +1,10 @@
 @import '../node_modules/bootstrap/scss/functions';
-@import "assets/variables";
+@import 'assets/variables';
 @import '../node_modules/bootstrap/scss/bootstrap';
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+@import 'assets/fonts';
 
 .section {
   padding: $spacer;
@@ -20,4 +22,10 @@
 
 .btn-up {
   text-transform: uppercase;
+}
+
+.post {
+  background-color: $gente;
+  padding: $spacer;
+  color: $white;
 }

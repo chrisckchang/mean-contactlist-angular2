@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="section">
+  <div class="section section-lg">
     Reunimos aqui as histórias de <strong>Brasileiras(os)</strong> que 
     transformaram suas vidas através da <strong>educação</strong> com os
     projetos impulsionados e/ou criados durante a gestão de 
@@ -11,10 +11,11 @@
     <button class="btn btn-warning" *ngIf="!isLoggedIn()" (click)="login()">Facebook Login</button>
     <button class="btn btn-warning" *ngIf="isLoggedIn()" (click)="logout()">Logout</button>
   </div>
-  <div class="py-3">
+  
+  <!-- <div class="py-3">
     <h3>Prazer, sou</h3>
-  </div>
-  <div class="row">
+  </div> -->
+  <!-- <div class="row">
     <div class="col-md-5">
       <ul class="list-group">
         <li class="list-group-item"
@@ -34,5 +35,7 @@
         [deleteHandler]="deletePost">
       </post-details>
     </div>
-  </div>
+  </div> -->
 </div>
+
+<app-fab></app-fab>

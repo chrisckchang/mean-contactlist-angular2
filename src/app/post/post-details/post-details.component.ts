@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { Post } from "../post";
 import { PostService } from "../post.service";
 
@@ -9,7 +9,7 @@ import { AuthService } from "../../services/auth.service";
   templateUrl: "./post-details.component.html",
   styleUrls: ["./post-details.component.css"]
 })
-export class PostDetailsComponent {
+export class PostDetailsComponent implements OnInit {
   eduProgramOptions = [
     { name: "Criação do ProUni", checked: false },
     { name: "Criação do ENEM e SiSu", checked: false },
@@ -36,23 +36,37 @@ export class PostDetailsComponent {
   ];
 
   firstGraduated = false;
-  firstGraduatedValue =
-    "Sou o primeiro da família a completar o ensino superior";
+  firstGraduatedValue = "Sou o primeiro da família a completar o ensino superior";
 
-  @Input()
   post: Post;
-
-  @Input()
-  createHandler: Function;
-  @Input()
-  updateHandler: Function;
-  @Input()
-  deleteHandler: Function;
+  user: any;
 
   constructor(
     private postService: PostService,
     public authService: AuthService
   ) {}
+
+  ngOnInit() {
+    this.createNewPost();
+    this.user = this.authService.getUserDetails();
+  }
+
+  createNewPost() {
+    var post: Post = {
+      owner: "",
+      occupation: "",
+      whoIAmToFamily: "",
+      eduPrograms: "",
+      againstTo: ""
+    };
+
+    // By default, a newly-created post will have the selected state.
+    this.selectPost(post);
+  }
+
+  selectPost(post: Post) {
+    this.post = post;
+  }
 
   selectedOptions(list) {
     return list.filter(opt => opt.checked).map(opt => opt.name);
@@ -87,19 +101,19 @@ export class PostDetailsComponent {
     post.againstTo = mAgainstTo.slice(0, -1);
 
     this.postService.createPost(post).then((newPost: Post) => {
-      this.createHandler(newPost);
+      // this.createHandler(newPost);
     });
   }
 
   updatePost(post: Post): void {
     this.postService.updatePost(post).then((updatedPost: Post) => {
-      this.updateHandler(updatedPost);
+      // this.updateHandler(updatedPost);
     });
   }
 
   deletePost(postId: String): void {
     this.postService.deletePost(postId).then((deletedPostId: String) => {
-      this.deleteHandler(deletedPostId);
+      // this.deleteHandler(deletedPostId);
     });
   }
 }

@@ -14,6 +14,8 @@ import { PostDetailsComponent } from "./post/post-details/post-details.component
 import { PostListComponent } from "./post/post-list/post-list.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { AboutComponent } from "./about/about.component";
+import { PostService } from "./post/post.service";
+import { SharedModule } from "./shared/shared.module";
 import { AppRoutingModule } from "./app.routing.module";
 
 @NgModule({
@@ -32,9 +34,10 @@ import { AppRoutingModule } from "./app.routing.module";
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    SharedModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
