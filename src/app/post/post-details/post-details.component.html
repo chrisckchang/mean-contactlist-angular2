@@ -2,8 +2,8 @@
     <div class="col-md-12">
         <h2 *ngIf="post._id">Post Details</h2>
         <h2 *ngIf="!post._id">New Post</h2>
-        <h2 *ngIf="this.authService.userDetails !== null">
-            <img src="" /> {{this.authService.userDetails.displayName}}
+        <h2 *ngIf="this.authService.isLoggedIn()">
+            <img src={{this.authService.getUserDetails().photoURL}} /> {{this.authService.getUserDetails().name}}
         </h2>
     </div>
 </div>

@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { auth } from "firebase/app";
 import { Observable } from "rxjs";
-import { AngularFireDatabase } from "@angular/fire/database";
+//import { AngularFireDatabase } from "@angular/fire/database";
 
 @Injectable({
   providedIn: "root"
@@ -17,11 +17,11 @@ export class AuthService {
 
   users: Observable<any[]>;
 
-  constructor(private afAuth: AngularFireAuth, db: AngularFireDatabase) {
+  constructor(private afAuth: AngularFireAuth) {
     this.user = afAuth.user;
     console.log(this.additionalUserInfo);
 
-    this.users = db.list("users").valueChanges();
+    //this.users = db.list("users").valueChanges();
 
     this.user.subscribe(user => {
       if (user) {
@@ -68,7 +68,7 @@ export class AuthService {
         this.PHOTO_SIZE.width +
         "&height=" +
         this.PHOTO_SIZE.height,
-      age: this.user
+      age: "Ainda virá"
     };
   };
 }
