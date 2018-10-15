@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { auth } from "firebase/app";
 import { Observable } from "rxjs";
-//import { AngularFireDatabase } from "@angular/fire/database";
+import { AngularFireDatabase } from "@angular/fire/database";
 
 @Injectable({
   providedIn: "root"
@@ -17,17 +17,24 @@ export class AuthService {
 
   users: Observable<any[]>;
 
-  constructor(private afAuth: AngularFireAuth) {
+  constructor(
+    private afAuth: AngularFireAuth,
+    private db: AngularFireDatabase
+  ) {
     this.user = afAuth.user;
-    console.log(this.additionalUserInfo);
 
-    //this.users = db.list("users").valueChanges();
+    if (this.isLoggedIn) {
+      this.db
+        .object("users/" + localStorage.getItem("userID"))
+        .valueChanges()
+        .subscribe(action => {
+          this.additionalUserInfo = action;
+        });
+    }
 
     this.user.subscribe(user => {
       if (user) {
         this.userDetails = user;
-        console.log(this.userDetails);
-        console.log(user);
       } else {
         this.userDetails = null;
       }
@@ -42,9 +49,37 @@ export class AuthService {
     this.afAuth.auth
       .signInWithPopup(provider)
       .then(data => {
-        console.log(data.additionalUserInfo.profile);
+        const usersRef = this.db.list("users");
+
+        const { profile } = data.additionalUserInfo as any;
+
+        const photoURL =
+          data.user.photoURL +
+          "?type=large&width=" +
+          this.PHOTO_SIZE.width +
+          "&height=" +
+          this.PHOTO_SIZE.height;
+
+        this.additionalUserInfo = {
+          id: profile.id,
+          name: profile.name,
+          gender: profile.gender,
+          age: this.calculateAge(new Date(profile.birthday)),
+          photoURL
+        };
+
+        usersRef.set(profile.id, this.additionalUserInfo);
+
+        localStorage.setItem("userID", profile.id);
       })
       .catch(err => console.log(err.message));
+  };
+
+  private calculateAge = date => {
+    var diff_ms = Date.now() - date.getTime();
+    var age_dt = new Date(diff_ms);
+
+    return Math.abs(age_dt.getUTCFullYear() - 1970);
   };
 
   isLoggedIn = () => {
@@ -56,19 +91,11 @@ export class AuthService {
   };
 
   logout = () => {
+    localStorage.removeItem("userID");
     this.afAuth.auth.signOut();
   };
 
   getUserDetails = () => {
-    return {
-      name: this.userDetails.displayName,
-      photoURL:
-        this.userDetails.photoURL +
-        "?type=large&width=" +
-        this.PHOTO_SIZE.width +
-        "&height=" +
-        this.PHOTO_SIZE.height,
-      age: "Ainda virá"
-    };
+    return this.additionalUserInfo;
   };
 }

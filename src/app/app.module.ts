@@ -9,6 +9,7 @@ import { PostListComponent } from "./post/post-list/post-list.component";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 
 import { firebase } from "../environments/firebase";
@@ -21,6 +22,7 @@ import { firebase } from "../environments/firebase";
     HttpModule,
     AngularFireModule.initializeApp(firebase),
     AngularFirestoreModule,
+    AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
   providers: [],
