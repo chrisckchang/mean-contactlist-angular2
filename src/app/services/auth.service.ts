@@ -68,7 +68,7 @@ export class AuthService {
         this.PHOTO_SIZE.width +
         "&height=" +
         this.PHOTO_SIZE.height,
-      age: "Ainda virá"
+      age: 18
     };
   };
 }
