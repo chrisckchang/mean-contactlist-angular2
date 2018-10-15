@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { PostDetailsComponent } from './post/post-details/post-details.component';
 import { PostListComponent } from './post/post-list/post-list.component';
+import { LoginComponent } from './auth/login/login.component';
 
 import { AppRoutingModule } from './app.routing.module';
 
@@ -13,7 +14,8 @@ import { AppRoutingModule } from './app.routing.module';
   declarations: [
     AppComponent,
     PostDetailsComponent,
-    PostListComponent
+    PostListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

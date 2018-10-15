@@ -10,6 +10,14 @@
   color: $white;
 }
 
+.section-lg {
+  min-height: 100vh;
+}
+
 .main-container {
   padding-top: $spacer;
+}
+
+.btn-up {
+  text-transform: uppercase;
 }
