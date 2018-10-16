@@ -4,6 +4,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { auth } from "firebase/app";
 import { Observable } from "rxjs";
 import { AngularFireDatabase } from "@angular/fire/database";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root"
@@ -19,7 +20,8 @@ export class AuthService {
 
   constructor(
     private afAuth: AngularFireAuth,
-    private db: AngularFireDatabase
+    private db: AngularFireDatabase,
+    private router: Router
   ) {
     this.user = afAuth.user;
 
@@ -72,6 +74,8 @@ export class AuthService {
         usersRef.set(profile.id, this.additionalUserInfo);
 
         localStorage.setItem("userID", profile.id);
+
+        this.router.navigate(['/contar']);
       })
       .catch(err => console.log(err.message));
   };

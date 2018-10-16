@@ -77,16 +77,4 @@ export class PostListComponent implements OnInit {
     }
     return this.posts;
   };
-
-  login = () => {
-    this.authService.login();
-  };
-
-  isLoggedIn = () => {
-    return this.authService.isLoggedIn();
-  };
-
-  logout = () => {
-    this.authService.logout();
-  };
 }
