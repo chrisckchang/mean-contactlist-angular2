@@ -11,7 +11,7 @@ import { AngularFireDatabase } from "@angular/fire/database";
 export class AuthService {
   private user: Observable<firebase.User>;
   private userDetails: firebase.User = null;
-  private additionalUserInfo = {};
+  private additionalUserInfo: any = {};
 
   private PHOTO_SIZE = { width: 720, height: 720 };
 
@@ -63,6 +63,7 @@ export class AuthService {
         this.additionalUserInfo = {
           id: profile.id,
           name: profile.name,
+          firstName: profile.name.split(" ")[0],
           gender: profile.gender,
           age: this.calculateAge(new Date(profile.birthday)),
           photoURL

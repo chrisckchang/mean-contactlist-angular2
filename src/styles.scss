@@ -29,3 +29,12 @@
   padding: $spacer;
   color: $white;
 }
+
+.form-control-theme {
+  border: none;
+  border-bottom: $input-border-width solid $input-border-color;
+
+  &:focus {
+    box-shadow: none;
+  }
+}

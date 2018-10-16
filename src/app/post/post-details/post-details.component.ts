@@ -25,15 +25,15 @@ export class PostDetailsComponent implements OnInit {
     { name: "Universidade Aberta do Brasil", checked: false }
   ];
 
-  againstTo = [
-    { name: "Escola sem partido", checked: false },
-    { name: "Ensino à distância desde o ensino básico", checked: false },
-    {
-      name: "Proibição da discussão sobre sexualidade nas escolas",
-      checked: false
-    },
-    { name: "Privatização das Universidades Federais", checked: false }
-  ];
+  // againstTo = [
+  //   { name: "Escola sem partido", checked: false },
+  //   { name: "Ensino à distância desde o ensino básico", checked: false },
+  //   {
+  //     name: "Proibição da discussão sobre sexualidade nas escolas",
+  //     checked: false
+  //   },
+  //   { name: "Privatização das Universidades Federais", checked: false }
+  // ];
 
   firstGraduated = false;
   firstGraduatedValue = "Sou o primeiro da família a completar o ensino superior";
@@ -81,25 +81,6 @@ export class PostDetailsComponent implements OnInit {
   }
 
   createPost(post: Post) {
-    if (this.firstGraduated)
-      post.whoIAmToFamily += this.firstGraduatedValue + ". ";
-
-    let mEduProgramOptions = "";
-    this.eduProgramOptions.forEach(option => {
-      if (option.checked) {
-        mEduProgramOptions += option.name + ", ";
-      }
-    });
-    post.eduPrograms = mEduProgramOptions.slice(0, -1);
-
-    let mAgainstTo = "";
-    this.againstTo.forEach(option => {
-      if (option.checked) {
-        mAgainstTo += option.name + ", ";
-      }
-    });
-    post.againstTo = mAgainstTo.slice(0, -1);
-
     this.postService.createPost(post).then((newPost: Post) => {
       // this.createHandler(newPost);
     });
