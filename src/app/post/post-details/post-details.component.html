@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="section">
+        <h4>Conte-nos sua história</h4>
+    </div>
+    <div *ngIf="post && user" class="post">
+        <h3>{{this.user.firstName}}<small>, {{this.user.age}} anos</small></h3>
+        <form>
+            <div class="form-group">
+                <input class="form-control form-control-theme" name="post-whoiam" [(ngModel)]="post.occupation" placeholder="Digite sua ocupação" />
+            </div>
+            <div class="form-group">
+                <label for="post-name"><strong>Criado (a) por:</strong></label>
+                <input class="form-control form-control-theme" name="post-whoaim-family" [(ngModel)]="post.whoIAmToFamily" placeholder="Fale dos seus responsáveis..."
+                />
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input (change)="firstGraduated = !firstGraduated" type="checkbox" data-toggle="toggle"> {{firstGraduatedValue}}
+                </label>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="post-name"><strong>Minha educação foi transformada com:</strong></label>
+                <div *ngFor="let option of eduProgramOptions">
+                    <label>
+                        <input type="checkbox" name="options" value="{{option.value}}" [(ngModel)]="option.checked" /> {{option.name}}
+                    </label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="section">
+        <div class="text-center">
+            <button type="button" class="btn btn-secondary btn-up" (click)="createPost(post)">Próximo</button>
+            <br>
+            <a routerLink="" class="btn btn-link">Cancelar</a>
+        </div>
+    </div>
+</div>

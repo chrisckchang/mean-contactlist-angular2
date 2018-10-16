@@ -1,0 +1,51 @@
+
+NOME
+
+HOJE SOU
+
+Campo texto 40 caracteres
+
+
+SOU
+
+Filho de...
+
+Sou o primeiro da família a completar o ensino superior: checkbox
+
+Tenho o maior salário da minha família: checkbox
+
+
+
+MINHA EDUCAÇÃO FOI TRANSFORMADA PELO/A:
+
+Criação do ProUni
+
+Criação do ENEM e SiSu
+
+Aumento de vagas nas Universidades Federais
+
+Novas Universidades Federais
+
+Criação de Campi de Universidades no interior
+
+Criação de Campi de Institutos Federais no interior
+
+Fortalecimento do FIES
+
+Cotas nas Universidades e IFs
+
+Universidade Aberta do Brasil
+
+
+ALÉM DISSO:
+
+Texto livre, 100 caracteres.
+
+
+E SOU CONTRA
+(checkboxes)
+
+Escola sem partido
+Ensino à distância desde o ensino básico
+Proibição da discussão sobre sexualidade nas escolas
+Privatização das Universidades Federais

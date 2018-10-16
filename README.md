@@ -1,8 +1,22 @@
+# Quero mais `seu-nome`s nos próximos quatro anos
 
-# Mean Contactlist Angular2
+Essa é uma aplicação web para facilitar que pessoas compartilhem histórias de sua educação nos anos em que Haddad foi ministro, e porque querem histórias como essas para mais gente. Nossa esperança é que isso sirva para um debate positivo nas eleições de 2018.
 
-Contact List is a RESTful API server and web application built with the MEAN (Angular 2) stack. It is a simple example that aims to concisely demonstrate basic MEAN and REST architecture. You can find the full tutorial here: https://devcenter.heroku.com/articles/mean-apps-restful-api.
+## Tecnicamente
 
-You can deploy a live copy of this application to Heroku with the button below.
+Essa é uma aplicação MEAN com angular 6. Ela roda no Heroku.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/chrisckchang/mean-contactlist-angular2)
+## Pré-requisitos
+
+* Node 10.9
+* Angular CLI 6 (https://cli.angular.io)
+
+## Rodando local
+
+Você precisará da URL de um mongodb rodando do npm e ng-cli.
+
+```
+export MONGODB_URI=[url-mongo]
+npm install
+npm start
+```
