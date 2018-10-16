@@ -1,52 +1,53 @@
-import { Component, OnInit } from '@angular/core';
-import { Post } from '../post';
-import { PostService } from '../post.service';
-import { PostDetailsComponent } from '../post-details/post-details.component';
+import { Component, OnInit } from "@angular/core";
+import { Post } from "../post";
+import { PostService } from "../post.service";
+import { PostDetailsComponent } from "../post-details/post-details.component";
+
+import { AuthService } from "../../services/auth.service";
 
 @Component({
-  selector: 'post-list',
-  templateUrl: './post-list.component.html',
-  styleUrls: ['./post-list.component.css'],
+  selector: "post-list",
+  templateUrl: "./post-list.component.html",
+  styleUrls: ["./post-list.component.css"],
   providers: [PostService]
 })
-
 export class PostListComponent implements OnInit {
+  posts: Post[];
+  selectedPost: Post;
 
-  posts: Post[]
-  selectedPost: Post
-
-  constructor(private postService: PostService) { }
+  constructor(
+    private postService: PostService,
+    public authService: AuthService
+  ) {}
 
   ngOnInit() {
-     this.postService
-      .getPosts()
-      .then((posts: Post[]) => {
-        this.posts = posts.map((post) => {
-          if (!post.owner) {
-            post.owner = '';
-          }
-          return post;
-        });
+    this.postService.getPosts().then((posts: Post[]) => {
+      this.posts = posts.map(post => {
+        if (!post.owner) {
+          post.owner = "";
+        }
+        return post;
       });
-  }
-
-  private getIndexOfPost = (postId: String) => {
-    return this.posts.findIndex((post) => {
-      return post._id === postId;
     });
   }
 
+  private getIndexOfPost = (postId: String) => {
+    return this.posts.findIndex(post => {
+      return post._id === postId;
+    });
+  };
+
   selectPost(post: Post) {
-    this.selectedPost = post
+    this.selectedPost = post;
   }
 
   createNewPost() {
     var post: Post = {
-      owner: '',
-      occupation: '',
-      whoIAmToFamily: '',
-      eduPrograms: '',
-      againstTo: ''
+      owner: "",
+      occupation: "",
+      whoIAmToFamily: "",
+      eduPrograms: "",
+      againstTo: ""
     };
 
     // By default, a newly-created post will have the selected state.
@@ -60,13 +61,13 @@ export class PostListComponent implements OnInit {
       this.selectPost(null);
     }
     return this.posts;
-  }
+  };
 
   addPost = (post: Post) => {
     this.posts.push(post);
     this.selectPost(post);
     return this.posts;
-  }
+  };
 
   updatePost = (post: Post) => {
     var idx = this.getIndexOfPost(post._id);
@@ -75,5 +76,5 @@ export class PostListComponent implements OnInit {
       this.selectPost(post);
     }
     return this.posts;
-  }
+  };
 }

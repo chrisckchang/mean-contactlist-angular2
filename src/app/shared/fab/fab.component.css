@@ -1,0 +1,23 @@
+.fab-container {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.fab-float {
+  position: fixed;
+  bottom: 0;
+  transform: translate(-20px, -20px);
+}
+
+.btn-circle,
+.btn-circle-sm {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  padding: 0;
+  -webkit-box-shadow: 6px 6px 10px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 6px 6px 10px 0px rgba(0,0,0,0.2);
+  box-shadow: 6px 6px 10px 0px rgba(0,0,0,0.2);
+}
