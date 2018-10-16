@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+
 import { Post } from "../post";
 import { PostService } from "../post.service";
 
@@ -11,18 +12,27 @@ import { AuthService } from "../../services/auth.service";
 })
 export class PostDetailsComponent implements OnInit {
   eduProgramOptions = [
-    { name: "Criação do ProUni", checked: false },
-    { name: "Criação do ENEM e SiSu", checked: false },
-    { name: "Aumento de vagas nas Universidades Federais", checked: false },
-    { name: "Novas Universidades Federais", checked: false },
-    { name: "Criação de Campi de Universidades no interior", checked: false },
+    { name: "Criação do ProUni", checked: false, value: 0 },
+    { name: "Criação do ENEM e SiSu", checked: false, value: 1 },
+    {
+      name: "Aumento de vagas nas Universidades Federais",
+      checked: false,
+      value: 2
+    },
+    { name: "Novas Universidades Federais", checked: false, value: 3 },
+    {
+      name: "Criação de Campi de Universidades no interior",
+      checked: false,
+      value: 4
+    },
     {
       name: "Criação de Campi de Institutos Federais no interior",
-      checked: false
+      checked: false,
+      value: 5
     },
-    { name: "Fortalecimento do FIES", checked: false },
-    { name: "Cotas nas Universidades e IFs", checked: false },
-    { name: "Universidade Aberta do Brasil", checked: false }
+    { name: "Fortalecimento do FIES", checked: false, value: 6 },
+    { name: "Cotas nas Universidades e IFs", checked: false, value: 7 },
+    { name: "Universidade Aberta do Brasil", checked: false, value: 8 }
   ];
 
   // againstTo = [
@@ -34,9 +44,11 @@ export class PostDetailsComponent implements OnInit {
   //   },
   //   { name: "Privatização das Universidades Federais", checked: false }
   // ];
-
-  firstGraduated = false;
-  firstGraduatedValue = "Sou o primeiro da família a completar o ensino superior";
+  firstGraduatedOptions = {
+    name: "Sou o primeiro da família a completar o ensino superior",
+    checked: false,
+    value: true
+  };
 
   post: Post;
   user: any;
@@ -57,7 +69,7 @@ export class PostDetailsComponent implements OnInit {
       occupation: "",
       whoIAmToFamily: "",
       eduPrograms: "",
-      againstTo: ""
+      firstGraduated: false
     };
 
     // By default, a newly-created post will have the selected state.
@@ -76,14 +88,16 @@ export class PostDetailsComponent implements OnInit {
     return this.selectedOptions(this.eduProgramOptions);
   }
 
-  selectedAgainstToOptions() {
+  selectedFirstGraduated() {
     return this.selectedOptions(this.eduProgramOptions);
   }
 
   createPost(post: Post) {
-    this.postService.createPost(post).then((newPost: Post) => {
-      // this.createHandler(newPost);
-    });
+    console.log(post);
+    //console.log(this.selectedEduProgramOptions());
+    post.owner = this.user.name;
+    post.eduPrograms = this.selectedEduProgramOptions();
+    this.postService.createPost(post);
   }
 
   updatePost(post: Post): void {
