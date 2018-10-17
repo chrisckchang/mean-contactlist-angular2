@@ -40,6 +40,7 @@ export class PostDetailsComponent implements OnInit {
 
   post: Post;
   user: any;
+  png: string;
 
   constructor(
     private postService: PostService,
@@ -60,7 +61,6 @@ export class PostDetailsComponent implements OnInit {
       againstTo: ""
     };
 
-    // By default, a newly-created post will have the selected state.
     this.selectPost(post);
   }
 
@@ -81,20 +81,5 @@ export class PostDetailsComponent implements OnInit {
   }
 
   createPost(post: Post) {
-    this.postService.createPost(post).then((newPost: Post) => {
-      // this.createHandler(newPost);
-    });
-  }
-
-  updatePost(post: Post): void {
-    this.postService.updatePost(post).then((updatedPost: Post) => {
-      // this.updateHandler(updatedPost);
-    });
-  }
-
-  deletePost(postId: String): void {
-    this.postService.deletePost(postId).then((deletedPostId: String) => {
-      // this.deleteHandler(deletedPostId);
-    });
   }
 }

@@ -20,16 +20,7 @@ export class PostListComponent implements OnInit {
     public authService: AuthService
   ) {}
 
-  ngOnInit() {
-    this.postService.getPosts().then((posts: Post[]) => {
-      this.posts = posts.map(post => {
-        if (!post.owner) {
-          post.owner = "";
-        }
-        return post;
-      });
-    });
-  }
+  ngOnInit() {}
 
   private getIndexOfPost = (postId: String) => {
     return this.posts.findIndex(post => {

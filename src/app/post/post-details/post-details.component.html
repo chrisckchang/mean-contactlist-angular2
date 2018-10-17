@@ -3,7 +3,8 @@
         <h4>Conte-nos sua história</h4>
     </div>
     <div *ngIf="post && user" class="post">
-        <h3>{{this.user.firstName}}<small>, {{this.user.age}} anos</small></h3>
+        <h3>{{user.firstName}}<small>, {{user.age}} anos</small></h3>
+        
         <form>
             <div class="form-group">
                 <input class="form-control form-control-theme" name="post-whoiam" [(ngModel)]="post.occupation" placeholder="Digite sua ocupação" />
@@ -36,4 +37,5 @@
             <a routerLink="" class="btn btn-link">Cancelar</a>
         </div>
     </div>
+    <app-post-img></app-post-img>
 </div>

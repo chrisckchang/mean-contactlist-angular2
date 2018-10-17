@@ -12,6 +12,7 @@ import { firebase } from "../environments/firebase";
 import { AppComponent } from "./app.component";
 import { PostDetailsComponent } from "./post/post-details/post-details.component";
 import { PostListComponent } from "./post/post-list/post-list.component";
+import { PostImgComponent } from "./post/post-img/post-img.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { AboutComponent } from "./about/about.component";
 import { PostService } from "./post/post.service";
@@ -24,6 +25,7 @@ import { AuthGuard } from "./services/auth.guard";
     AppComponent,
     PostDetailsComponent,
     PostListComponent,
+    PostImgComponent,
     LoginComponent,
     AboutComponent
   ],
