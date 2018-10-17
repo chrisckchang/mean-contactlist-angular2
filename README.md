@@ -8,15 +8,43 @@ Essa é uma aplicação MEAN com angular 6. Ela roda no Heroku.
 
 ## Pré-requisitos
 
-* Node 10.9
-* Angular CLI 6 (https://cli.angular.io)
+- Node 10.9
+- Angular CLI 6 (https://cli.angular.io)
+- Firebase
 
 ## Rodando local
 
-Você precisará da URL de um mongodb rodando do npm e ng-cli.
+Você precisará de um projeto Firebase e ng-cli.
+
+Crie um arquivo firebase.js em `src/environments` no seguinte formato:
 
 ```
-export MONGODB_URI=[url-mongo]
+export const firebase = {
+  apiKey: "API_KEY",
+  authDomain: "AUTH_DOMAIN",
+  databaseURL: "DATABASE_URL",
+  projectId: "PROJECT_ID",
+  storageBucket: "STORAGE_BUCKET",
+  messagingSenderId: "MESSAGING_SENDER_ID"
+};
+```
+
+Fale com algum responsável para conseguir as credenciais do projeto.
+
+Depois execute:
+
+```
 npm install
+```
+
+### Rodando servidor
+
+```
 npm start
+```
+
+### Rodando cliente
+
+```
+ng serve
 ```
