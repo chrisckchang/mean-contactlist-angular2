@@ -29,11 +29,11 @@ export class PostImgComponent implements OnInit {
     let ctx: CanvasRenderingContext2D = this.canvasRef.nativeElement.getContext('2d');
     let canvas = this.canvasRef.nativeElement;
     let photo = this.photo.nativeElement;
-
-    // ctx.drawImage(photo, 0, 0);
     
     ctx.fillStyle = '#005166';
     ctx.fillRect(0, 0, d.width, d.height);
+
+    ctx.drawImage(photo, 0, 0);
 
     // Nome, idade
     ctx.fillStyle = '#FFFFFF'
