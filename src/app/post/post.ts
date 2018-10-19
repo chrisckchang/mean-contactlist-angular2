@@ -5,4 +5,5 @@ export class Post {
   whoIAmToFamily: string;
   eduPrograms: any;
   firstGraduated: boolean;
+  user?: any;
 }

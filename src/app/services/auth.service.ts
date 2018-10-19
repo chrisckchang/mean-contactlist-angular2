@@ -14,7 +14,7 @@ export class AuthService {
   private userDetails: firebase.User = null;
   private additionalUserInfo: any = {};
 
-  private PHOTO_SIZE = { width: 720, height: 720 };
+  private PHOTO_SIZE = { width: 600, height: 600 };
 
   users: Observable<any[]>;
 

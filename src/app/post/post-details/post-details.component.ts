@@ -51,7 +51,9 @@ export class PostDetailsComponent implements OnInit {
   };
 
   post: Post;
+  postImg: Post;
   user: any;
+  showImg: boolean;
 
   constructor(
     private postService: PostService,
@@ -61,6 +63,7 @@ export class PostDetailsComponent implements OnInit {
   ngOnInit() {
     this.createNewPost();
     this.user = this.authService.getUserDetails();
+    this.showImg = false;
   }
 
   createNewPost() {
@@ -72,7 +75,6 @@ export class PostDetailsComponent implements OnInit {
       firstGraduated: false
     };
 
-    // By default, a newly-created post will have the selected state.
     this.selectPost(post);
   }
 
@@ -93,11 +95,13 @@ export class PostDetailsComponent implements OnInit {
   }
 
   createPost(post: Post) {
-    console.log(post);
-    //console.log(this.selectedEduProgramOptions());
+    post.user = this.user;
     post.owner = this.user.name;
     post.eduPrograms = this.selectedEduProgramOptions();
-    this.postService.createPost(post);
+    this.postService.createPost(post).then(() => {
+      console.log(post);
+      this.createImage(post);
+    });
   }
 
   updatePost(post: Post): void {
@@ -110,5 +114,10 @@ export class PostDetailsComponent implements OnInit {
     this.postService.deletePost(postId).then((deletedPostId: String) => {
       // this.deleteHandler(deletedPostId);
     });
+  }
+
+  createImage(post): void {
+    this.postImg = post;
+    this.showImg = true;
   }
 }

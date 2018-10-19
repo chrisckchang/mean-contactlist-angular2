@@ -4,8 +4,11 @@ import { Http, Response } from "@angular/http";
 import { AngularFireDatabase, AngularFireList } from "@angular/fire/database";
 import { Observable } from "rxjs";
 
+import { environment } from '../../environments/environment';
+
 @Injectable()
 export class PostService {
+  
   private postsUrl = "/api/post";
 
   postsRef: AngularFireList<any>;
@@ -26,14 +29,14 @@ export class PostService {
     });
   }
 
-  createPost(newPost: Post): void {
+  createPost(newPost: Post): Promise<void> {
     // return this.http
     //   .post(this.postsUrl, newPost)
     //   .toPromise()
     //   .then(response => response.json() as Post)
     //   .catch(this.handleError);
 
-    this.postsRef.update(localStorage.getItem("userID"), newPost);
+    return this.postsRef.update(localStorage.getItem("userID"), newPost);
   }
 
   deletePost(delPostId: String): Promise<String> {
