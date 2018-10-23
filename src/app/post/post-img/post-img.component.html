@@ -1,6 +1,12 @@
-<img #photo id="photo" [src]="photoUrl" alt="facebook" style="display: none;">
-<img #logo id="haddad" src="assets/logo.png" alt="haddad" style="display: none;">
+<img #photo id="photo" [src]="photoUrl" alt="facebook" style="display: none;" crossOrigin="Anonymous">
+<img #logo id="haddad" src="assets/logo.png" alt="haddad" style="display: none;" crossOrigin="Anonymous">
 
-<div class="photo">
+<div class="photo" style="display: none;">
   <canvas id="canvas" #myCanvas width="600" height="600"></canvas>
+</div>
+
+<img [src]="png" alt="Minha história" width="100%">
+
+<div class="text-center mt-3">
+  <button type="button" class="btn btn-secondary btn-up" (click)="save()">Salvar</button>
 </div>

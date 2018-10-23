@@ -37,9 +37,9 @@ export class PostImgComponent implements OnChanges {
         line: 20
       }
 
-      let ctx: CanvasRenderingContext2D = this.canvasRef.nativeElement.getContext('2d');
-      ctx.textBaseline = 'top';
       let canvas = this.canvasRef.nativeElement;
+      let ctx: CanvasRenderingContext2D = canvas.getContext('2d');
+      ctx.textBaseline = 'top';
 
       let photo = this.photo.nativeElement;
       let logo = this.logo.nativeElement;
@@ -101,6 +101,17 @@ export class PostImgComponent implements OnChanges {
       ctx.fillText('Essa e outras histórias em', 400 - d.padding_x, 540);
       ctx.fillStyle = '#ffffff';
       ctx.fillText('pramaisgente.info', 400 - d.padding_x, 540 + d.line);
+
+      this.png = canvas.toDataURL("image/png"); 
+    }
+  }
+
+  save() {
+    try {
+      const url = this.png.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
+      window.open(url);
+    } catch (e) {
+        console.log("Storage failed: " + e);
     }
   }
 

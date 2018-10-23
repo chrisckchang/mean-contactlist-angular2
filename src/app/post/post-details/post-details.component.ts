@@ -99,7 +99,6 @@ export class PostDetailsComponent implements OnInit {
     post.owner = this.user.name;
     post.eduPrograms = this.selectedEduProgramOptions();
     this.postService.createPost(post).then(() => {
-      console.log(post);
       this.createImage(post);
     });
   }
