@@ -1,0 +1,10 @@
+.historia-container {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.historia {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
