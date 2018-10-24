@@ -56,10 +56,10 @@ export class PostImgComponent implements OnChanges {
       ctx.fillStyle = '#FFFFFF'
       ctx.font = d.fontA;
       ctx.fillText(this.post.user.firstName + ',', d.padding_x, d.padding_y);
-      const nameWidth = ctx.measureText(this.post.user.firstName + ',');
-      ctx.font = '24px Montserrat';
-      ctx.textBaseline = 'bottom';
-      ctx.fillText(this.post.user.age, nameWidth.width + 24, 60);
+      // const nameWidth = ctx.measureText(this.post.user.firstName + ',');
+      // ctx.font = '24px Montserrat';
+      // ctx.textBaseline = 'bottom';
+      // ctx.fillText(this.post.user.age, nameWidth.width + 24, 60);
       
       // Ocupação
       ctx.textBaseline = 'top';

@@ -45,8 +45,8 @@ export class AuthService {
 
   login = () => {
     const provider = new auth.FacebookAuthProvider();
-    provider.addScope("user_birthday");
-    provider.addScope("user_gender");
+    // provider.addScope("user_birthday");
+    // provider.addScope("user_gender");
 
     this.afAuth.auth
       .signInWithPopup(provider)
@@ -67,7 +67,7 @@ export class AuthService {
           name: profile.name,
           firstName: profile.name.split(" ")[0],
           gender: profile.gender,
-          age: this.calculateAge(new Date(profile.birthday)),
+          age: 0, //this.calculateAge(new Date(profile.birthday)),
           photoURL
         };
 
