@@ -5,7 +5,7 @@
   <canvas id="canvas" #myCanvas width="600" height="600"></canvas>
 </div>
 
-<img [src]="png" alt="Minha história" width="100%">
+<img [src]="png" alt="Minha história" width="100%" [hidden]="!png">
 
 <div class="text-center mt-3">
   <button type="button" class="btn btn-secondary btn-up" (click)="save()">Salvar</button>
