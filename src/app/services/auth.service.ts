@@ -33,8 +33,8 @@ export class AuthService {
         // não dá certo porque ele quebra. o guarda não deixa ele acessar
         // o componente. da mesma forma redirecionando pro home, ele n deixa 
         // clicar no conte-nos a historia. só se der um refresh.
-        if (user) this.router.navigate(["/"]);
-        else this.router.navigate(["/"]);
+        if (user) this.router.navigate(["/comecar"]);
+        else this.router.navigate(["/comecar"]);
       })
     });
 

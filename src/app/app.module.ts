@@ -15,6 +15,7 @@ import { PostListComponent } from "./post/post-list/post-list.component";
 import { PostImgComponent } from "./post/post-img/post-img.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { AboutComponent } from "./about/about.component";
+import { StartComponent } from "./start/start.component";
 import { PostService } from "./post/post.service";
 import { SharedModule } from "./shared/shared.module";
 import { AppRoutingModule } from "./app.routing.module";
@@ -27,7 +28,8 @@ import { AuthGuard } from "./services/auth.guard";
     PostListComponent,
     PostImgComponent,
     LoginComponent,
-    AboutComponent
+    AboutComponent,
+    StartComponent
   ],
   imports: [
     BrowserModule,
