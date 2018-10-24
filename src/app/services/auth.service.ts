@@ -6,6 +6,8 @@ import { Observable } from "rxjs";
 import { AngularFireDatabase } from "@angular/fire/database";
 import { Router } from "@angular/router";
 
+import { first } from "rxjs/operators";
+
 @Injectable({
   providedIn: "root"
 })
@@ -24,6 +26,17 @@ export class AuthService {
     private router: Router
   ) {
     this.user = afAuth.user;
+
+    afAuth.auth.onAuthStateChanged(user => {
+      this.isLoggedIn().then(user => {
+        // Aqui eu tinha colocado pra redirecionar pro /contar, mas aí
+        // não dá certo porque ele quebra. o guarda não deixa ele acessar
+        // o componente. da mesma forma redirecionando pro home, ele n deixa 
+        // clicar no conte-nos a historia. só se der um refresh.
+        if (user) this.router.navigate(["/"]);
+        else this.router.navigate(["/"]);
+      })
+    });
 
     if (this.isLoggedIn) {
       this.db
@@ -74,8 +87,6 @@ export class AuthService {
         usersRef.set(profile.id, this.additionalUserInfo);
 
         localStorage.setItem("userID", profile.id);
-
-        this.router.navigate(['/contar']);
       })
       .catch(err => console.log(err.message));
   };
@@ -88,11 +99,7 @@ export class AuthService {
   };
 
   isLoggedIn = () => {
-    if (this.userDetails == null) {
-      return false;
-    } else {
-      return true;
-    }
+    return this.afAuth.authState.pipe(first()).toPromise();
   };
 
   logout = () => {
@@ -101,6 +108,8 @@ export class AuthService {
   };
 
   getUserDetails = () => {
-    return this.additionalUserInfo;
+    return this.db
+      .object("users/" + localStorage.getItem("userID"))
+      .valueChanges();
   };
 }

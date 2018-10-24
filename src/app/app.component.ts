@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+
   constructor(
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) { }
 
   logout() {
     this.authService.logout();
@@ -20,7 +20,7 @@ export class AppComponent {
   }
 
   isLoggedIn(): boolean {
-    return this.authService.isLoggedIn();
+    return false; //this.authService.isLoggedIn();
   }
 
 }

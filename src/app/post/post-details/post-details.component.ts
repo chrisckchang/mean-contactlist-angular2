@@ -58,11 +58,13 @@ export class PostDetailsComponent implements OnInit {
   constructor(
     private postService: PostService,
     public authService: AuthService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.createNewPost();
-    this.user = this.authService.getUserDetails();
+    this.authService.getUserDetails().subscribe(info => {
+      this.user = info;
+    });
     this.showImg = false;
   }
 
