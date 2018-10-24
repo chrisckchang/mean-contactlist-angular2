@@ -31,8 +31,8 @@ export class PostImgComponent implements OnChanges {
         padding_x: 20,
         padding_y: 20,
         fontA: 'bold 34px Montserrat',
-        fontB: 'bold 18px Montserrat',
-        fontC: '14px Montserrat',
+        fontB: '14px Montserrat',
+        fontC: 'bold 16px Montserrat',
         fontD: 'bold 14px Montserrat',
         line: 20
       }

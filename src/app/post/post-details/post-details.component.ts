@@ -15,24 +15,30 @@ export class PostDetailsComponent implements OnInit {
     { name: "Criação do ProUni", checked: false, value: 0 },
     { name: "Criação do ENEM e SiSu", checked: false, value: 1 },
     {
-      name: "Aumento de vagas nas Universidades Federais",
+      name: "Mais vagas em Universidades Públicas",
       checked: false,
       value: 2
     },
     { name: "Novas Universidades Federais", checked: false, value: 3 },
     {
-      name: "Criação de Campi de Universidades no interior",
+      name: "Novos campi de Universidades no interior",
       checked: false,
       value: 4
     },
     {
-      name: "Criação de Campi de Institutos Federais no interior",
+      name: "Novos campi de IFs no interior",
       checked: false,
       value: 5
     },
     { name: "Fortalecimento do FIES", checked: false, value: 6 },
     { name: "Cotas nas Universidades e IFs", checked: false, value: 7 },
-    { name: "Universidade Aberta do Brasil", checked: false, value: 8 }
+    { name: "Universidade Aberta do Brasil", checked: false, value: 8 },
+    { name: "Caminho da Escola", checked: false, value: 9 },
+    {
+      name: "Contratações em Universidades Públicas",
+      checked: false,
+      value: 10
+    },
   ];
 
   // againstTo = [
