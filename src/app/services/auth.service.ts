@@ -28,14 +28,7 @@ export class AuthService {
     this.user = afAuth.user;
 
     afAuth.auth.onAuthStateChanged(user => {
-      this.isLoggedIn().then(user => {
-        // Aqui eu tinha colocado pra redirecionar pro /contar, mas aí
-        // não dá certo porque ele quebra. o guarda não deixa ele acessar
-        // o componente. da mesma forma redirecionando pro home, ele n deixa 
-        // clicar no conte-nos a historia. só se der um refresh.
-        if (user) this.router.navigate(["/comecar"]);
-        else this.router.navigate(["/comecar"]);
-      })
+      this.doS();
     });
 
     if (this.isLoggedIn) {
@@ -54,6 +47,15 @@ export class AuthService {
         this.userDetails = null;
       }
     });
+  }
+
+  async doS() {
+    const u = await this.isLoggedIn();
+    if (u) {
+      this.router.navigate(["/contar"]);
+    } else {
+      this.router.navigate(["/"]);
+    }
   }
 
   login = () => {
