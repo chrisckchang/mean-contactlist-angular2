@@ -9,10 +9,18 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
+  _isLoggedIn: boolean = false;
+
   constructor(
     private authService: AuthService,
     private router: Router
   ) { }
+
+  ngOnInit() {
+    this.authService.getUserDetails().subscribe(info => {
+      this._isLoggedIn = info !== null;
+    });
+  }
 
   logout() {
     this.authService.logout();
@@ -20,7 +28,7 @@ export class AppComponent {
   }
 
   isLoggedIn(): boolean {
-    return false; //this.authService.isLoggedIn();
+    return this._isLoggedIn; //this.authService.isLoggedIn();
   }
 
 }
