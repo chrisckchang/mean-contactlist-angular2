@@ -29,7 +29,7 @@ export class PostListComponent implements OnInit {
       .getPosts(this.offset)
       .subscribe(posts => {
         this.posts = posts as Post[];
-        console.log(this.posts);
+        this.posts = this.posts.reverse();
         this.loading = false;
       });
   }
@@ -88,7 +88,7 @@ export class PostListComponent implements OnInit {
       .getPosts(this.offset)
       .subscribe(posts => {
         this.posts = posts as Post[];
-        console.log(this.posts);
+        this.posts = this.posts.reverse();
       });
   };
 }
