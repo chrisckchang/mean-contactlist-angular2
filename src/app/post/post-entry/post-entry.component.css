@@ -34,10 +34,21 @@
     background-size: cover;
 }
 
+@media (max-width: 576px) {
+  .post-text-wrapper {
+    order: 1;
+  }
+  .post-img {
+    order: 0;
+    height: 50vh;
+  }
+}
+
 .post-footer {
   font-size: 0.8em;
   font-weight: bold;
   text-align: center;
   background-color: #fff;
   color: #005166;
+  padding: 0.2rem;
 }

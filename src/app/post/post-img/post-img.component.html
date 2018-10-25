@@ -5,6 +5,9 @@
   <canvas id="canvas" #myCanvas width="600" height="600"></canvas>
 </div>
 
-<div class="mb-3">
-  <img [src]="png" alt="Minha história" width="100%" [hidden]="!png" crossOrigin="Anonymous">
+<div [hidden]="!png">
+  <img [src]="png" alt="Minha história" width="100%" crossOrigin="Anonymous">
+  <div class="section section-s text-center">
+    Para salvar e compartilhar, toque e segure sobre a imagem acima.
+  </div>
 </div>

@@ -40,9 +40,7 @@
             </div>
         </div>
     </div>
-    <div [hidden]="!showImg">
-        <div class="section">
-            <app-post-img [photoUrl]="user?.photoURL" [post]="postImg"></app-post-img>
-        </div>
-    </div>
+</div>
+<div [hidden]="!showImg">
+    <app-post-img [photoUrl]="user?.photoURL" [post]="postImg"></app-post-img>
 </div>

@@ -1,6 +1,6 @@
-<div class="post-entry mb-3">
+<div class="post-entry mb-4">
   <div class="row no-gutters">
-    <div class="col-8">
+    <div class="col-sm-8 post-text-wrapper">
       <div class="post-text">
         <div class="post-title">{{ post.user.firstName }}</div>
         <div class="post-line">{{ post.occupation }}</div>
@@ -16,15 +16,20 @@
         <div class="post-hr"></div>
 
         <div class="post-subtitle">Minha educação foi transformada com</div>
-        <div class="post-line" *ngFor="let edu of post.eduPrograms">{{edu}}</div>
+        <div class="post-line" *ngFor="let edu of post.eduPrograms">{{edu}};</div>
 
         <div class="post-footer my-3">Quero isso para mais {{ post.user.firstName }}s</div>
 
         <div class="text-right">
           <img src="assets/logo.png" alt="logo">
         </div>
+
+        <div class="post-hr"></div>
+
+        <div class="post-subtitle text-right">Essa e outras histórias em</div>
+        <div class="post-line text-right">pramaisgente.info</div>
       </div>
     </div>
-    <div class="col-4 post-img" [ngStyle]="{'background-image': 'url(' + post.user.photoURL + ') '}"></div>
+    <div class="col-sm-4 post-img" [ngStyle]="{'background-image': 'url(' + post.user.photoURL + ') '}"></div>
   </div>
 </div>
