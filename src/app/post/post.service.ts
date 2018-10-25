@@ -30,7 +30,7 @@ export class PostService {
     // });
     return this.db
       .list("posts", ref =>
-        ref.orderByChild("datetime").limitToFirst(offset + 1)
+        ref.orderByChild("datetime").limitToLast(offset + 1)
       )
       .valueChanges();
   }
