@@ -38,7 +38,7 @@ export class PostDetailsComponent implements OnInit {
       name: "Contratações em Universidades Públicas",
       checked: false,
       value: 10
-    },
+    }
   ];
 
   // againstTo = [
@@ -64,7 +64,7 @@ export class PostDetailsComponent implements OnInit {
   constructor(
     private postService: PostService,
     public authService: AuthService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.createNewPost();
@@ -80,7 +80,8 @@ export class PostDetailsComponent implements OnInit {
       occupation: "",
       whoIAmToFamily: "",
       eduPrograms: "",
-      firstGraduated: false
+      firstGraduated: false,
+      datetime: null
     };
 
     this.selectPost(post);
@@ -106,6 +107,7 @@ export class PostDetailsComponent implements OnInit {
     post.user = this.user;
     post.owner = this.user.name;
     post.eduPrograms = this.selectedEduProgramOptions();
+    post.datetime = new Date();
     this.postService.createPost(post).then(() => {
       this.createImage(post);
     });

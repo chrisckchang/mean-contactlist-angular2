@@ -29,7 +29,9 @@ export class PostService {
     //   return action;
     // });
     return this.db
-      .list("posts", ref => ref.limitToFirst(offset + 1))
+      .list("posts", ref =>
+        ref.orderByChild("datetime").limitToFirst(offset + 1)
+      )
       .valueChanges();
   }
 

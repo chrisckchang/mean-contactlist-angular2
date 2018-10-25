@@ -50,7 +50,8 @@ export class PostListComponent implements OnInit {
       occupation: "",
       whoIAmToFamily: "",
       eduPrograms: "",
-      firstGraduated: false
+      firstGraduated: false,
+      datetime: null
     };
 
     // By default, a newly-created post will have the selected state.
