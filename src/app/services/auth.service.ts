@@ -52,7 +52,7 @@ export class AuthService {
   async doS() {
     const u = await this.isLoggedIn();
     if (u) {
-      this.router.navigate(["/"]);
+      this.router.navigate(["/contar"]);
     } else {
       this.router.navigate(["/"]);
     }
