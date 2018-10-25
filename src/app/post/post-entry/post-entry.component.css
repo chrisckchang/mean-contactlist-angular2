@@ -34,7 +34,7 @@
     background-size: cover;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 399px) {
   .post-text-wrapper {
     order: 1;
   }
