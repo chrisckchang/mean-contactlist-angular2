@@ -1,8 +1,7 @@
 <div class="container">
   <div class="section mb-3">
-    Reunimos aqui as histórias de <strong>Brasileiras(os)</strong> que 
-    transformaram suas vidas através da <strong>educação</strong> com os
-    projetos impulsionados e/ou criados durante a gestão de 
+    Reunimos aqui as histórias de <strong>Brasileiras(os)</strong> que transformaram suas vidas através da <strong>educação</strong>
+    com os projetos impulsionados e/ou criados durante a gestão de
     <strong>Haddad</strong> como <strong>Ministro da Educação</strong>
     <div class="text-center my-3">
       <a routerLink="/contar" class="btn btn-primary">Conte-nos sua história</a>
@@ -14,6 +13,9 @@
   <div [hidden]="loading">
     <h3 class="title">Prazer, sou</h3>
     <app-post-entry [post]="post" *ngFor="let post of posts"></app-post-entry>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-secondary" (click)="getPosts()">Carregar mais histórias</button>
   </div>
 </div>
 

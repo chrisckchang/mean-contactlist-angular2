@@ -81,7 +81,7 @@ export class AuthService {
           id: profile.id,
           name: profile.name,
           firstName: profile.name.split(" ")[0],
-          gender: "",//profile.gender,
+          gender: "", //profile.gender,
           age: 0, //this.calculateAge(new Date(profile.birthday)),
           photoURL
         };
@@ -89,6 +89,7 @@ export class AuthService {
         usersRef.set(profile.id, this.additionalUserInfo);
 
         localStorage.setItem("userID", profile.id);
+        window.location.reload();
       })
       .catch(err => console.log(err.message));
   };
@@ -116,6 +117,6 @@ export class AuthService {
   };
 
   getPosts = () => {
-    return this.db.list('/posts').valueChanges();
-  }
+    return this.db.list("/posts").valueChanges();
+  };
 }

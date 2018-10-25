@@ -7,18 +7,17 @@
             <h3>{{user.firstName}}</h3>
             <form>
                 <div class="form-group">
-                    <input class="form-control form-control-theme" name="post-whoiam" [(ngModel)]="post.occupation" placeholder="Digite sua ocupação"
+                    <input class="form-control form-control-theme" name="post-whoiam" [(ngModel)]="post.occupation" placeholder="Ex.: Formado e pós-graduado na UFCG"
                     />
                 </div>
                 <div class="form-group">
                     <label for="post-name"><strong>Criado (a) por:</strong></label>
-                    <input class="form-control form-control-theme" name="post-whoaim-family" [(ngModel)]="post.whoIAmToFamily" placeholder="Fale dos seus responsáveis..."
-                    maxlength="43"
-                    />
+                    <input class="form-control form-control-theme" name="post-whoaim-family" [(ngModel)]="post.whoIAmToFamily" placeholder="Ex.: Pais agricultores"
+                        maxlength="43" />
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" [(ngModel)]="post.firstGraduated" [ngModelOptions]="{standalone: true}" value="true" data-toggle="toggle"> {{firstGraduatedOptions.name}}
+                        <input type="checkbox" [(ngModel)]="post.firstGraduated" [ngModelOptions]="{standalone: true}" value="true" data-toggle="toggle">                        {{firstGraduatedOptions.name}}
                     </label>
                 </div>
                 <br>
@@ -26,7 +25,7 @@
                     <label for="post-name"><strong>Minha educação foi transformada com:</strong></label>
                     <div *ngFor="let option of eduProgramOptions">
                         <label>
-                            <input type="checkbox" name="options" value="{{option.value}}" [(ngModel)]="option.checked" /> {{option.name}}
+                            <input type="checkbox" name="options" value="{{option.value}}" [(ngModel)]="option.checked" />                            {{option.name}}
                         </label>
                     </div>
                 </div>

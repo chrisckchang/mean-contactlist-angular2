@@ -4,29 +4,33 @@ import { Http, Response } from "@angular/http";
 import { AngularFireDatabase, AngularFireList } from "@angular/fire/database";
 import { Observable } from "rxjs";
 
-import { environment } from '../../environments/environment';
+import { environment } from "../../environments/environment";
 
 @Injectable()
 export class PostService {
-  
   private postsUrl = "/api/post";
 
   postsRef: AngularFireList<any>;
   posts: Observable<any[]>;
+  db: AngularFireDatabase;
 
   constructor(private http: Http, db: AngularFireDatabase) {
     this.postsRef = db.list("posts");
+    this.db = db;
   }
 
-  getPosts(): any {
+  getPosts(offset): any {
     // return this.http
     //   .get(this.postsUrl)
     //   .toPromise()
     //   .then(response => response.json() as Post[])
     //   .catch(this.handleError);
-    this.postsRef.valueChanges().subscribe(action => {
-      return action;
-    });
+    // this.postsRef.valueChanges().subscribe(action => {
+    //   return action;
+    // });
+    return this.db
+      .list("posts", ref => ref.limitToFirst(offset + 1))
+      .valueChanges();
   }
 
   createPost(newPost: Post): Promise<void> {
