@@ -13,6 +13,7 @@ import { AppComponent } from "./app.component";
 import { PostDetailsComponent } from "./post/post-details/post-details.component";
 import { PostListComponent } from "./post/post-list/post-list.component";
 import { PostImgComponent } from "./post/post-img/post-img.component";
+import { PostEntryComponent } from "./post/post-entry/post-entry.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { AboutComponent } from "./about/about.component";
 import { StartComponent } from "./start/start.component";
@@ -27,6 +28,7 @@ import { AuthGuard } from "./services/auth.guard";
     PostDetailsComponent,
     PostListComponent,
     PostImgComponent,
+    PostEntryComponent,
     LoginComponent,
     AboutComponent,
     StartComponent

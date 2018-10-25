@@ -1,0 +1,43 @@
+.post-entry {
+  background-color: #005166;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.post-text {
+  padding: 0.5rem;
+}
+
+.post-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.post-line {
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.post-subtitle {
+  font-size: 0.6em;
+}
+
+.post-hr {
+  height: 1rem;
+}
+
+.post-img {
+  background: no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.post-footer {
+  font-size: 0.8em;
+  font-weight: bold;
+  text-align: center;
+  background-color: #fff;
+  color: #005166;
+}
