@@ -15,6 +15,8 @@ export class PostListComponent implements OnInit {
   posts: Post[];
   loading: boolean;
   selectedPost: Post;
+  subscription: any;
+  offset = 10;
 
   constructor(
     private postService: PostService,
@@ -23,11 +25,13 @@ export class PostListComponent implements OnInit {
 
   ngOnInit() {
     this.loading = true;
-    this.authService.getPosts().subscribe(posts => {
-      this.posts = posts as Post[];
-      console.log(this.posts);
-      this.loading = false;
-    })
+    this.subscription = this.postService
+      .getPosts(this.offset)
+      .subscribe(posts => {
+        this.posts = posts as Post[];
+        console.log(this.posts);
+        this.loading = false;
+      });
   }
 
   private getIndexOfPost = (postId: String) => {
@@ -75,5 +79,15 @@ export class PostListComponent implements OnInit {
       this.selectPost(post);
     }
     return this.posts;
+  };
+
+  getPosts = () => {
+    this.offset += 10;
+    this.subscription = this.postService
+      .getPosts(this.offset)
+      .subscribe(posts => {
+        this.posts = posts as Post[];
+        console.log(this.posts);
+      });
   };
 }
