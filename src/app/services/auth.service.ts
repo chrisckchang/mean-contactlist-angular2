@@ -52,7 +52,7 @@ export class AuthService {
   async doS() {
     const u = await this.isLoggedIn();
     if (u) {
-      this.router.navigate(["/contar"]);
+      this.router.navigate(["/"]);
     } else {
       this.router.navigate(["/"]);
     }
@@ -114,4 +114,8 @@ export class AuthService {
       .object("users/" + localStorage.getItem("userID"))
       .valueChanges();
   };
+
+  getPosts = () => {
+    return this.db.list('/posts').valueChanges();
+  }
 }

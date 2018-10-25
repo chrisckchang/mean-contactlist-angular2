@@ -53,7 +53,7 @@ export class PostImgComponent implements OnChanges {
       ctx.fillRect(0, 0, 400, d.height);
 
       // Nome, idade
-      ctx.fillStyle = '#FFFFFF'
+      ctx.fillStyle = '#ffffff'
       ctx.font = d.fontA;
       ctx.fillText(this.post.user.firstName, d.padding_x, d.padding_y);
       // const nameWidth = ctx.measureText(this.post.user.firstName + ',');
@@ -62,6 +62,7 @@ export class PostImgComponent implements OnChanges {
       // ctx.fillText(this.post.user.age, nameWidth.width + 24, 60);
       
       // Ocupação
+      // ctx.fillStyle = '#87bbc8';
       ctx.textBaseline = 'top';
       ctx.font = d.fontC;
       ctx.fillText(this.post.occupation, d.padding_x, d.padding_y + (d.line * 2));
@@ -70,12 +71,14 @@ export class PostImgComponent implements OnChanges {
       }
 
       // Criação
+      // ctx.fillStyle = '#87bbc8';
       ctx.font = d.fontB;
       ctx.fillText('Criada(o) por', d.padding_x, d.padding_y + (d.line * 6) + 5);
       ctx.font = d.fontC;
       ctx.fillText(this.post.whoIAmToFamily, d.padding_x, d.padding_y + 5 + (d.line * 7));
 
       // Mudança
+      // ctx.fillStyle = '#87bbc8';
       ctx.font = d.fontB;
       ctx.fillText('Minha educação foi transformada com', d.padding_x, d.padding_y + (d.line * 10) - 5);
       ctx.font = d.fontC;
@@ -84,7 +87,7 @@ export class PostImgComponent implements OnChanges {
       }
 
       // Rodapé 
-      ctx.fillStyle = '#fff';
+      ctx.fillStyle = '#ffffff';
       ctx.fillRect(d.padding_x, 450, 400 - (d.padding_x * 2), 24);
 
       ctx.textBaseline = 'middle';

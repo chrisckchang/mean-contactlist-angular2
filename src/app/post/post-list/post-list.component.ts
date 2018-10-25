@@ -13,6 +13,7 @@ import { AuthService } from "../../services/auth.service";
 })
 export class PostListComponent implements OnInit {
   posts: Post[];
+  loading: boolean;
   selectedPost: Post;
 
   constructor(
@@ -20,7 +21,14 @@ export class PostListComponent implements OnInit {
     public authService: AuthService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loading = true;
+    this.authService.getPosts().subscribe(posts => {
+      this.posts = posts as Post[];
+      console.log(this.posts);
+      this.loading = false;
+    })
+  }
 
   private getIndexOfPost = (postId: String) => {
     return this.posts.findIndex(post => {
