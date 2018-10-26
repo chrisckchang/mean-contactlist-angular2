@@ -17,6 +17,7 @@ export class PostListComponent implements OnInit {
   selectedPost: Post;
   subscription: any;
   offset = 10;
+  countPosts: any;
 
   constructor(
     private postService: PostService,
@@ -32,6 +33,10 @@ export class PostListComponent implements OnInit {
         this.posts = this.posts.reverse();
         this.loading = false;
       });
+    this.subscription = this.postService.getCountPosts().subscribe(countP => {
+      this.countPosts = countP;
+      console.log(countP);
+    });
   }
 
   private getIndexOfPost = (postId: String) => {

@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Post } from "./post";
 import { Http, Response } from "@angular/http";
 import { AngularFireDatabase, AngularFireList } from "@angular/fire/database";
-import { Observable } from "rxjs";
+import { Observable, Subscriber } from "rxjs";
 
 import { environment } from "../../environments/environment";
 
@@ -34,7 +34,9 @@ export class PostService {
       )
       .valueChanges(["child_moved"]);
   }
-
+  getCountPosts(): any {
+    return this.db.object("count_posts").valueChanges();
+  }
   createPost(newPost: Post): Promise<void> {
     // return this.http
     //   .post(this.postsUrl, newPost)

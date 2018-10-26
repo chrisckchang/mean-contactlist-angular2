@@ -5,7 +5,6 @@ const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 admin.initializeApp();
 
-// Keeps track of the length of the 'likes' child list in a separate property.
 exports.countPostsChange = functions.database
   .ref("/posts/{datetime}")
   .onWrite(change => {
