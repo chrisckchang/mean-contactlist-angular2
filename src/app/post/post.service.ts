@@ -32,7 +32,7 @@ export class PostService {
       .list("posts", ref =>
         ref.orderByChild("datetime").limitToLast(offset + 1)
       )
-      .valueChanges();
+      .valueChanges(["child_moved"]);
   }
 
   createPost(newPost: Post): Promise<void> {
