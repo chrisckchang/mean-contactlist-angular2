@@ -18,10 +18,10 @@ export class ContactListComponent implements OnInit {
   constructor(private contactService: ContactService) { }
 
   ngOnInit() {
-     this.contactService
-      .getContacts()
-      .then((contacts: Contact[]) => {
-        this.contacts = contacts.map((contact) => {
+
+    this.contactService.getContacts()
+      .subscribe((data: Contact[]) => {
+        this.contacts = data.map((contact) => {
           if (!contact.phone) {
             contact.phone = {
               mobile: '',
@@ -44,7 +44,7 @@ export class ContactListComponent implements OnInit {
   }
 
   createNewContact() {
-    var contact: Contact = {
+    const contact: Contact = {
       name: '',
       email: '',
       phone: {
@@ -58,7 +58,7 @@ export class ContactListComponent implements OnInit {
   }
 
   deleteContact = (contactId: String) => {
-    var idx = this.getIndexOfContact(contactId);
+    const idx = this.getIndexOfContact(contactId);
     if (idx !== -1) {
       this.contacts.splice(idx, 1);
       this.selectContact(null);

@@ -22,20 +22,26 @@ export class ContactDetailsComponent {
   constructor (private contactService: ContactService) {}
 
   createContact(contact: Contact) {
-    this.contactService.createContact(contact).then((newContact: Contact) => {
-      this.createHandler(newContact);
-    });
+    this.contactService.createContact(contact)
+      .subscribe((data: Contact) => {
+        const newContact: Contact = { ...data };
+        this.createHandler(newContact);
+      });
   }
 
   updateContact(contact: Contact): void {
-    this.contactService.updateContact(contact).then((updatedContact: Contact) => {
-      this.updateHandler(updatedContact);
-    });
+    this.contactService.updateContact(contact)
+      .subscribe((data: Contact) => {
+        const updatedContact: Contact = { ...data };
+        this.updateHandler(updatedContact);
+      });
   }
 
   deleteContact(contactId: String): void {
-    this.contactService.deleteContact(contactId).then((deletedContactId: String) => {
-      this.deleteHandler(deletedContactId);
-    });
+
+    this.contactService.deleteContact(contactId)
+      .subscribe((deletedContactId: String) => {
+        this.deleteHandler(deletedContactId);
+      });
   }
 }
