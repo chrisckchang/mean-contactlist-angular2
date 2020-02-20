@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/mean-contactlist-angular2",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -29,6 +30,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -123,5 +130,8 @@
       }
     }
   },
-  "defaultProject": "mean-contactlist-angular2"
+  "defaultProject": "mean-contactlist-angular2",
+  "cli": {
+    "analytics": "b81b6b94-5c57-4fd7-b544-5b62816b950e"
+  }
 }
